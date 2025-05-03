@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelo Chat</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+    <div class="Page-container">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img id="logo" src="{% static 'images/chatpng.png' %}" alt="chat logo">ZeloChat</a>
+              <a class="navbar-brand" href="register" id="loginav">Signup</a>
+            </div>
+          </nav>
+          <div class="container">
+                <h1 id="mid-text">Have your best chat</h1>
+                <div class="buttons">
+                    <a class="Try-now" href="register">TRY NOW</a>
+                    <h3 id="login1">Or</h3>
+                    <a class="Try-now" href="login">Login Here</a>
+                </div>
+          </div>
+          <div class="img-container">
+            <img src="{% static 'images/social.png' %}" alt="social image" class="socialimg">
+          </div>
+    </div>
+</body>
+</html>

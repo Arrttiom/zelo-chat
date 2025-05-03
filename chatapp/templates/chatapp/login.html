@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelo Chat</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="content">
+        <h1>Login</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                <center><h2 id="alert" class="alert alert-info">{{ message }}</h2></center>
+            {% endfor %}
+        {% endif %}
+
+        <script>
+          window.addEventListener('load', function() {
+              setTimeout(function() {
+                  var messages = document.getElementById('alert');
+                  if (messages) {
+                      messages.style.display = 'none';
+                  }
+              }, 3000);
+          });
+        </script>
+
+            <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <input type="email" placeholder="Email" name="email" required=""><br><br><br>
+              <input type="password" placeholder="Password" name="password" required=""><br>
+              <center>
+                <button type="submit">Start chatting</button>
+              </center>
+
+              <center>
+                <h2 id="alternative">Don't have an account? <a href="{% url 'register' %}" id="alternative2">Sign up here</a></h2>
+              </center>
+            </form>     
+      </div>
+    </div>
+  </body>
+</html>
+

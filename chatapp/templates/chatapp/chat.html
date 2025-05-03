@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zelo Chat</title>
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<script>
+    window.addEventListener('load', function () {
+      var anchor = document.getElementById("scroll-anchor");
+      if (anchor) {
+        anchor.scrollIntoView({ behavior: "auto" });
+      }
+    });
+  </script>
+<body>
+  <div id="secondpage" class="page-container">
+    <div id="mid_block2" class="mid_block">
+        <nav>
+            <h1>Chat with {{ receiver.Username }}</h1>
+        </nav>
+        <div id="chat-messages">
+            {% for msg in messages %}
+                <h3><strong>{{ msg.sender }}:</strong> {{ msg.message }}</h3>
+            {% empty %}
+                <p>No messages yet.</p>
+            {% endfor %}
+            <div id="scroll-anchor"></div>
+        </div>
+        <form id="message-form" method="post">
+            {% csrf_token %}
+            <input type="text" id="message-input" name="message" placeholder="Aa" autocomplete="off" required>
+            <button type="submit" id="sendbutton">Send</button>
+        </form>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  nav {
+  margin:1rem;
+  }
+  #mid_block2 {
+    height: 80%;
+    width: 70%;
+    overflow-y: auto;
+    font-size: larger;
+  }
+
+  #message-input {
+    width: 100%;
+  }
+
+  #message-form {
+  position: sticky;
+  bottom: -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(96 139 168);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;  
+  width: 100%;
+  }
+
+  #chat-messages {
+  margin-bottom: 10px;
+  margin-left: 1.5rem;
+  font-size: larger;
+  font-weight: 400;
+  }
+
+  #sendbutton {
+      margin: 23px;
+  }
+  
+</style>
+
+<script>
+
+    window.addEventListener('load', function () {
+      var anchor = document.getElementById("scroll-anchor");
+      if (anchor) {
+         anchor.scrollIntoView({ behavior: "auto" });
+      }
+    });
+    function loadMessages() {
+        fetch("{% url 'chat' receiver.id %}?ajax=true", {
+    headers: {
+        "X-Requested-With": "XMLHttpRequest"
+    }
+})
+.then(response => response.json())
+        .then(data => {
+            const chatBox = document.getElementById("chat-messages");
+            chatBox.innerHTML = '';
+
+            data.messages.forEach(msg => {
+                const p = document.createElement("p");
+                p.innerHTML = `<strong>${msg.sender}:</strong> ${msg.message}`;
+                chatBox.appendChild(p);
+            });
+
+            const anchor = document.createElement("div");
+            anchor.id = "scroll-anchor";
+            chatBox.appendChild(anchor);
+            anchor.scrollIntoView({ behavior: "smooth" });
+        });
+    }
+
+loadMessages();
+setInterval(loadMessages, 3000);
+
+const form = document.getElementById("message-form");
+form.onsubmit = function (e) {
+    e.preventDefault();
+    const input = document.getElementById("message-input");
+    const message = input.value;
+    if (message.trim() === "") return;
+
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    fetch("{% url 'chat' receiver.id %}", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrfToken,
+            "X-Requested-With": "XMLHttpRequest",
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `message=${encodeURIComponent(message)}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        input.value = "";
+        loadMessages();
+    });
+};
+</script>

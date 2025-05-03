@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zelo Chat</title>
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+  <div id="secondpage" class="page-container">
+    <div class="mid_block">
+      <h1>Search user</h1>
+      <form method="GET" action="{% url 'search_user' %}">
+        <input type="text" name="q" placeholder="Enter" required>
+        <center><button id="submit-button" type="submit">Search</button></center>
+      </form>
+
+      <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var messages = document.getElementById('usernotfound');
+                if (messages) {
+                    messages.style.display = 'none';
+                }
+            }, 3000);
+        });
+      </script>
+
+      {% if searched_user %}
+        <hr>
+        <center><h2>Found: {{ searched_user.Username }}</h2></center>
+        <form method="GET" action="{% url 'chat' searched_user.id %}">
+         <center><button type="submit">Start chatting</button></center>
+        </form>
+      {% elif searched %}
+        <center><h2 id="usernotfound">User not found.</h2></center>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

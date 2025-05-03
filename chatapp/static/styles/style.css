@@ -1,0 +1,425 @@
+/* HOME STYLING */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .Page-container {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("/static/images/wallpaper.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .navbar.bg-body-tertiary {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    background-color: rgb(38, 128, 218);
+  }
+
+  .navbar-brand{
+    text-decoration: none;
+    margin: 3rem;
+    font-size: 45px;
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand:hover{
+    transition: .2s;
+    color: #666d76;
+  }
+
+  .container-fluid {
+    display: flex;
+    align-items: center;        
+  }        
+        
+  #logo {        
+    width: 60px;        
+  }        
+
+  #loginav {
+    background: linear-gradient(to right, rgb(27, 80, 133), rgb(15, 102, 132));
+    height: 4rem;
+    width: 9rem;
+    padding: 1.2rem;
+    border-radius: 15px;
+    position: absolute;
+    right: 3rem;
+  }
+
+  .container {
+    width: 50%;
+    height: fit-content;
+    margin: 2rem;
+    margin-left: 4em;
+    margin-top: 4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  #mid-text {
+    display: block;
+    text-align: start;
+    font-size: 8rem;
+    color: #ffffff;
+    margin-left: 4rem;
+    margin-top: 110px;
+  }
+
+  .Try-now {
+    background: linear-gradient(to right, rgb(27, 80, 133), rgb(15, 102, 132));
+    height: fit-content;
+    width: fit-content;
+    padding: 1.2rem;
+    border-radius: 15px;
+    display: inline;
+    font-size: 50px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    margin-left: 4.2rem;
+  }
+
+  .Try-now:hover {
+    transition: 0.2s;
+    color: #666d76;
+  }
+
+  .socialimg {
+    position: absolute;
+    right: 6em;
+    top: 16%;
+    width: 37rem;
+    height: auto;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  /* Signup Page styling */
+
+  .page-container {
+    background-image: url("/static/images/wallpaper.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .content {
+    width: 80%;
+    max-width: 620px;
+    padding: 2rem;
+    height: fit-content;
+    max-height: fit-content;
+    background-color: #366ec9;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 1rem 0px rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    text-align: center;
+    padding-bottom: 23px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  input[type="text"] {
+    outline: none;
+    border: 2px solid transparent;
+    padding: .8rem;
+    background-color: #dadee1;
+    border-radius: .8rem;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+  }
+
+  input[type="password"] {
+    outline: none;
+    border: 2px solid transparent;
+    padding: .8rem;
+    background-color: #dadee1;
+    border-radius: .8rem;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+  }
+
+  input[type="email"] {
+    outline: none;
+    border: 2px solid transparent;
+    padding: .8rem;
+    background-color: #dadee1;
+    border-radius: .8rem;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+  }
+
+  input[type="email"]:focus {
+    border: 2px solid #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  }
+
+  input[type="text"]:focus {
+    border: 2px solid #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  }
+
+  input[type="password"]:focus {
+    border: 2px solid #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 1.6rem;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem 2rem;
+    background-color: #0d1030;
+    border-radius: 2rem;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: 0.25s ease;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  button:hover {
+    background-color: #353a41;
+  }
+
+  .profile-image-container{
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    margin: auto;
+    margin-top: -20px;
+}
+
+  #file-upload {
+    display: none;
+  }
+  
+  #default-profile-image {
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+  }
+
+  #sub_button {
+    margin: 1.6rem;
+  }              
+
+  #alert {
+    color: rgb(184, 6, 6);
+    margin: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  /* Login Page Styling */
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  #login1 {
+    color: #ffffff;
+    position: relative;
+    left: 2rem;
+    font-size: 3.5em;
+  }
+
+  #alternative {
+    position: relative;
+    top: 15px;
+  }
+
+  #alternative2 {
+    text-decoration: none;
+    color: rgb(9, 58, 130);
+  }
+
+  #secondpage {
+    background-image: url("/static/images/wallpaper2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .mid_block {
+    height: 60%;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 25px;
+  }
+
+  #submit-button {
+    width: 15rem;
+    height: 3rem;
+  }
+
+  hr {
+    margin: 1rem;
+  }
+
+  #usernotfound {
+    position: relative;
+    top: 20px;
+  }
+
+@media (max-width: 1300px) {
+  .socialimg {
+    width: 30rem;
+    right: .1rem;
+    top: 30%;
+    }
+  }
+
+@media (max-width: 1204px) {
+  .buttons {
+    position: relative;
+    right: 10%;
+  }
+
+  #mid-text {
+    font-size: 5rem;
+    margin-left: 2rem;
+  }
+
+  .socialimg {
+    width: 24rem;
+    right: 3rem;
+    top: 25%;
+  }
+}
+
+@media (max-width: 954px) {
+  .buttons {
+    position: relative;
+    right: 10%;
+  }
+  #mid-text {
+    font-size: 5rem;
+    margin-left: 2rem;
+  }
+
+  .socialimg {
+    width: 18em;
+    right: 6rem;
+    top: 16%;
+  }
+}
+@media (max-width: 800px) {
+  .socialimg {
+    right: 2.5rem;
+    top: 16%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 40px;
+    margin: 1rem;
+    justify-content: center;
+  }
+
+
+  .container {
+    width: 90%;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  #mid-text {
+    font-size: 4rem;
+    margin: 2rem auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -33px;
+    gap: 3rem;
+  }
+
+  .Try-now {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+  .socialimg {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 599px) {
+    .page-container {
+        background-size: 100vh;
+        background-repeat: repeat;
+    }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 410px) {
+  .navbar-brand {
+    width: 2rem;
+    margin-left: 4rem;
+  }
+  #loginav {
+    width: fit-content;
+    margin-right: -30px;
+  }
+
+}
