@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from urllib.parse import urlparse
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,6 +81,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'main_chat.wsgi.application'
 ASGI_APPLICATION = 'main_chat.asgi.application'
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
 
 # Database
