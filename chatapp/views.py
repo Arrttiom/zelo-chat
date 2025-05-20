@@ -17,10 +17,10 @@ def UserRegister(request):
         Password = request.POST['password']
         Password2 = request.POST['password2']
        
-        if User.objects.filter(email=Email).exists():
+        if User.objects.filter(Email=Email).exists():
             messages.error(request, "User already exists!")
             return redirect('register')
-        elif User.objects.filter(username=Username).exists():
+        elif User.objects.filter(Username=Username).exists():
             messages.error(request, "User already exists!")
             return redirect('register')
         else:
