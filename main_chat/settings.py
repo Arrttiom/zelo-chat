@@ -87,7 +87,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://chat_db_i6bj_user:bfpLj7grn6CKbzxboXFDCPTriG95Fxhv@dpg-d0ethm15pdvs73b30tl0-a.frankfurt-postgres.render.com/chat_db_i6bj')
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
 }
 
 # Password validation
