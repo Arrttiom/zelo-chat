@@ -6,3 +6,5 @@ class User(models.Model):
     Email = models.EmailField()
     Password = models.CharField(max_length=60)
 
+    def __str__(self):
+        return self.Username
