@@ -23,13 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)!daff8#57ogk3qf@=8h0hssohvj$12d*@(2r$q38++z!v%95*'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -48,7 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -81,21 +80,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'main_chat.wsgi.application'
 ASGI_APPLICATION = 'main_chat.asgi.application'
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chat_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Shanks$puf1',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default='postgresql://chat_db_i6bj_user:bfpLj7grn6CKbzxboXFDCPTriG95Fxhv@dpg-d0ethm15pdvs73b30tl0-a.frankfurt-postgres.render.com/chat_db_i6bj')
 }
 
 # Password validation
